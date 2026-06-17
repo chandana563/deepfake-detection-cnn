@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Deepfake Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="hero">
+    <h1>🛡️ DEEPFAKE DETECTION SYSTEM</h1>
+    <p>AI Powered Image Authenticity Verification</p>
+
+    <a href="#upload">
+        <button class="start-btn">START ANALYSIS</button>
+    </a>
+</div>
+
+<div class="rules-box">
+    <h2>📋 Guidelines</h2>
+
+    <ul>
+        <li>Upload JPG, JPEG or PNG images.</li>
+        <li>Use clear images for better accuracy.</li>
+        <li>Face images generally work best.</li>
+        <li>AI predictions are estimates.</li>
+        <li>Check image authenticity instantly.</li>
+    </ul>
+</div>
+
+<div id="upload" class="upload-box">
+
+    <h2>📤 Upload Image</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        <input
+            type="file"
+            name="image"
+            accept=".jpg,.jpeg,.png"
+            required>
+
+        <button type="submit">
+            🔍 Analyze Image
+        </button>
+
+    </form>
+
+</div>
+
+{% if image_path %}
+
+<div class="preview-box">
+
+    <h2>🖼 Uploaded Image</h2>
+
+    <img src="{{ image_path }}"
+         class="preview-image">
+
+</div>
+
+{% endif %}
+
+{% if result %}
+
+<div class="result-section">
+
+    {% if result == "REAL" %}
+
+    <div class="real-box">
+
+        <h2>✅ AUTHENTIC IMAGE</h2>
+
+        <h3>Confidence: {{ confidence }}%</h3>
+
+    </div>
+
+    {% else %}
+
+    <div class="fake-box">
+
+        <h2>🚨 DEEPFAKE DETECTED</h2>
+
+        <h3>Confidence: {{ confidence }}%</h3>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endif %}
+
+</body>
+</html>
