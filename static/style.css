@@ -1,50 +1,105 @@
+```css
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Segoe UI,sans-serif;
+    font-family:'Segoe UI',sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#071329,#10284f,#1d3f74);
-    min-height:100vh;
+    background:linear-gradient(
+    135deg,
+    #050816,
+    #0f172a,
+    #1e293b
+    );
     color:white;
+    min-height:100vh;
 }
 
+/* HERO */
+
 .hero{
+    padding:120px 20px;
     text-align:center;
-    padding:100px 20px;
+}
+
+.glass{
+    width:85%;
+    margin:auto;
+    padding:60px;
+    border-radius:30px;
+    backdrop-filter:blur(15px);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 8px 40px rgba(0,0,0,0.4);
 }
 
 .hero h1{
-    font-size:55px;
+    font-size:60px;
     margin-bottom:20px;
 }
 
 .hero p{
     font-size:22px;
-    color:#d6e4ff;
-    margin-bottom:30px;
+    color:#cbd5e1;
+    margin-bottom:35px;
 }
 
 .start-btn{
-    background:#00d4ff;
-    color:black;
+    background:linear-gradient(
+    45deg,
+    #06b6d4,
+    #8b5cf6
+    );
+    color:white;
     border:none;
-    padding:15px 40px;
-    border-radius:30px;
+    padding:16px 40px;
+    border-radius:40px;
     font-size:18px;
     font-weight:bold;
     cursor:pointer;
+    transition:.3s;
 }
+
+.start-btn:hover{
+    transform:scale(1.08);
+}
+
+/* FEATURES */
+
+.features{
+    width:90%;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:280px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+/* RULES */
 
 .rules-box{
     width:80%;
-    margin:30px auto;
-    background:#162544;
+    margin:50px auto;
     padding:35px;
     border-radius:25px;
-    box-shadow:0 0 25px rgba(0,0,0,.3);
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
 }
 
 .rules-box h2{
@@ -52,18 +107,20 @@ body{
 }
 
 .rules-box li{
-    margin:15px 0;
-    font-size:20px;
+    margin:12px 0;
+    font-size:18px;
 }
 
+/* UPLOAD */
+
 .upload-box{
-    width:60%;
-    margin:40px auto;
-    background:#162544;
-    padding:35px;
+    width:70%;
+    margin:50px auto;
+    padding:40px;
     border-radius:25px;
     text-align:center;
-    box-shadow:0 0 25px rgba(0,0,0,.3);
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
 }
 
 .upload-box h2{
@@ -73,69 +130,92 @@ body{
 input[type=file]{
     width:100%;
     padding:15px;
-    background:white;
     border-radius:15px;
     margin-bottom:25px;
 }
 
 .upload-box button{
-    background:#00d4ff;
-    color:black;
+    background:linear-gradient(
+    45deg,
+    #06b6d4,
+    #8b5cf6
+    );
+    color:white;
     border:none;
     padding:15px 35px;
     border-radius:15px;
     font-size:18px;
-    font-weight:bold;
     cursor:pointer;
 }
 
+/* IMAGE */
+
 .preview-box{
     width:80%;
-    margin:40px auto;
-    background:#162544;
-    padding:30px;
-    border-radius:25px;
+    margin:50px auto;
     text-align:center;
-}
-
-.preview-box h2{
-    margin-bottom:25px;
 }
 
 .preview-image{
-    width:550px;
+    width:650px;
     max-width:90%;
-    border-radius:20px;
-    border:4px solid #00d4ff;
-    box-shadow:0 0 25px rgba(0,212,255,.5);
+    border-radius:25px;
+    border:4px solid #06b6d4;
+    box-shadow:0 0 40px rgba(6,182,212,.5);
 }
+
+/* RESULT */
 
 .result-section{
     width:80%;
-    margin:40px auto;
+    margin:50px auto;
+}
+
+.real-box,
+.fake-box{
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
 }
 
 .real-box{
-    background:#0f5132;
-    padding:30px;
-    border-radius:25px;
-    text-align:center;
+    background:rgba(34,197,94,0.15);
+    border:2px solid #22c55e;
 }
 
 .fake-box{
-    background:#7f1d1d;
-    padding:30px;
-    border-radius:25px;
-    text-align:center;
+    background:rgba(239,68,68,0.15);
+    border:2px solid #ef4444;
+}
+
+.confidence-bar{
+    width:80%;
+    height:18px;
+    background:#1e293b;
+    margin:25px auto;
+    border-radius:50px;
+    overflow:hidden;
+}
+
+.confidence-fill{
+    height:100%;
+}
+
+.real-fill{
+    background:#22c55e;
+}
+
+.fake-fill{
+    background:#ef4444;
 }
 
 .real-box h2,
 .fake-box h2{
-    font-size:35px;
-    margin-bottom:15px;
+    font-size:38px;
 }
 
 .real-box h3,
 .fake-box h3{
+    margin-top:15px;
     font-size:24px;
 }

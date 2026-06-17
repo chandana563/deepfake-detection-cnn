@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,24 +9,56 @@
 <body>
 
 <div class="hero">
-    <h1>🛡️ DEEPFAKE DETECTION SYSTEM</h1>
-    <p>AI Powered Image Authenticity Verification</p>
 
-    <a href="#upload">
-        <button class="start-btn">START ANALYSIS</button>
-    </a>
+    <div class="glass">
+
+        <h1>🛡️ Deepfake Detection System</h1>
+
+        <p>
+            Advanced AI-Powered Image Authenticity Verification
+        </p>
+
+        <a href="#upload">
+            <button class="start-btn">
+                Start Analysis →
+            </button>
+        </a>
+
+    </div>
+
+</div>
+
+<div class="features">
+
+    <div class="card">
+        <h3>🧠 CNN Model</h3>
+        <p>Deep Learning Based Detection</p>
+    </div>
+
+    <div class="card">
+        <h3>⚡ Fast Analysis</h3>
+        <p>Instant Prediction Results</p>
+    </div>
+
+    <div class="card">
+        <h3>🎯 High Accuracy</h3>
+        <p>Real vs Fake Classification</p>
+    </div>
+
 </div>
 
 <div class="rules-box">
-    <h2>📋 Guidelines</h2>
+
+    <h2>📋 Detection Guidelines</h2>
 
     <ul>
         <li>Upload JPG, JPEG or PNG images.</li>
-        <li>Use clear images for better accuracy.</li>
-        <li>Face images generally work best.</li>
-        <li>AI predictions are estimates.</li>
+        <li>Use high quality images.</li>
+        <li>Face images provide better results.</li>
+        <li>Predictions are AI-generated estimates.</li>
         <li>Check image authenticity instantly.</li>
     </ul>
+
 </div>
 
 <div id="upload" class="upload-box">
@@ -35,10 +68,10 @@
     <form method="POST" enctype="multipart/form-data">
 
         <input
-            type="file"
-            name="image"
-            accept=".jpg,.jpeg,.png"
-            required>
+        type="file"
+        name="image"
+        accept=".jpg,.jpeg,.png"
+        required>
 
         <button type="submit">
             🔍 Analyze Image
@@ -65,27 +98,39 @@
 
 <div class="result-section">
 
-    {% if result == "REAL" %}
+{% if result == "REAL" %}
 
-    <div class="real-box">
+<div class="real-box">
 
-        <h2>✅ AUTHENTIC IMAGE</h2>
+    <h2>✅ AUTHENTIC IMAGE</h2>
 
-        <h3>Confidence: {{ confidence }}%</h3>
-
+    <div class="confidence-bar">
+        <div class="confidence-fill real-fill"
+             style="width: {{ confidence }}%;">
+        </div>
     </div>
 
-    {% else %}
+    <h3>Confidence Score: {{ confidence }}%</h3>
 
-    <div class="fake-box">
+</div>
 
-        <h2>🚨 DEEPFAKE DETECTED</h2>
+{% else %}
 
-        <h3>Confidence: {{ confidence }}%</h3>
+<div class="fake-box">
 
+    <h2>🚨 DEEPFAKE DETECTED</h2>
+
+    <div class="confidence-bar">
+        <div class="confidence-fill fake-fill"
+             style="width: {{ confidence }}%;">
+        </div>
     </div>
 
-    {% endif %}
+    <h3>Confidence Score: {{ confidence }}%</h3>
+
+</div>
+
+{% endif %}
 
 </div>
 
@@ -93,3 +138,4 @@
 
 </body>
 </html>
+
